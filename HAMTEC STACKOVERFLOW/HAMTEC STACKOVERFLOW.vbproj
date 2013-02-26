@@ -92,6 +92,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="App.htm" />
     <Content Include="GIT BEGIN.htm" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
