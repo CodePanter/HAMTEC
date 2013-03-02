@@ -7,11 +7,10 @@
    <div class="homelogo"> </div>
 	<div class="recentanswered"> 
 		<p id="title">Recent opgelost</p>
+        <% for (int i = 0; i < 5; i++)
+           { %>
 		<div class="recenttitle"> bam</div>
-		<div class="recenttitle"> bam</div>
-		<div class="recenttitle"> bam</div>
-		<div class="recenttitle"> bam</div>
-		<div class="recenttitle"> bam</div>
+		<% } %>
 	</div>
 	<div class="recentactivity"> <p id="title">Recent beantwoord</p> </div>
 	<div class="topiclist">
