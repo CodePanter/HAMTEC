@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Hamtec.Account
 {
@@ -13,20 +16,34 @@ namespace Hamtec.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
-        }
+           int userId       = Convert.ToInt32(Request.Form["userId"]);
+           string userName  = Request.Form["username"];
+           string passWord  = Request.Form["password"];
+           string insertAccountQuery = (userId + userName + passWord);
+           TextInput.Text   = insertAccountQuery;
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
-        {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
+           string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+           string _query = "INSERT INTO [users] (userid, username, password) VALUES ('"+ userId +"', '"+ userName + "', '" + passWord + "')";
+           using (SqlConnection conn = new SqlConnection(_connStr))
+           {
+               using (SqlCommand comm = new SqlCommand())
+               {
+                   comm.Connection = conn;
+                   comm.CommandType = CommandType.Text;
+                   comm.CommandText = _query;                  
+                   try
+                   {
+                       conn.Open();
+                       comm.ExecuteNonQuery();
+                   }
+                   catch (SqlException ex)
+                   {
+                       TextInput.Text = "ERROR";
+                   }
+               }
+           }
 
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (String.IsNullOrEmpty(continueUrl))
-            {
-                continueUrl = "~/";
-            }
-            Response.Redirect(continueUrl);
-        }
+        }      
 
     }
 }
