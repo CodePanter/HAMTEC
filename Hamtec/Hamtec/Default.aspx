@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="Hamtec._Default" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-</asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
    <div class="homelogo"> </div>
 	<div class="recentanswered"> 
@@ -14,6 +12,7 @@
 	</div>
 	<div class="recentactivity"> <p id="title">Recent beantwoord</p> </div>
 	<div class="topiclist">
+    
     <% for (int i = 0; i < 9; i++)
        { %>
 		<div class="topicwrapper"> 

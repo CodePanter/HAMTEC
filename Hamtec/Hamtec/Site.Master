@@ -14,9 +14,9 @@
 <div class="header">
 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
  <AnonymousTemplate>
-    <a href="account/login.aspx">Login</a> 
+    <a href="account/login.aspx">    Login</a> 
     <a href="/account/register.aspx">Register</a> 
-    <a href="/about.aspx">About</a> 
+    <a href="/about.aspx">           About</a> 
  </AnonymousTemplate>
 </asp:LoginView>
 </div>
