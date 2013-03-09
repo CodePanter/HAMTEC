@@ -26,6 +26,6 @@
 			<div id="answers">Answers:  <div id="count">0</div></div>
 			<div id="solved">Solved:<img src="cross.png" height="40px"></div>
 		</div>
-        <% } %>		
+        <% } %>	      
 	</div>
 </asp:Content>
