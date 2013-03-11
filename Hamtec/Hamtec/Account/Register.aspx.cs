@@ -16,29 +16,34 @@ namespace Hamtec.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           int userId       = Convert.ToInt32(Request.Form["userId"]);
-           string userName  = Request.Form["username"];
-           string passWord  = Request.Form["password"];
-           string insertAccountQuery = (userId + userName + passWord);
-           TextInput.Text   = insertAccountQuery;
-
-           string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-           string _query = "INSERT INTO [users] (userid, username, password) VALUES ('"+ userId +"', '"+ userName + "', '" + passWord + "')";
-           using (SqlConnection conn = new SqlConnection(_connStr))
+           if(IsPostBack)
            {
-               using (SqlCommand comm = new SqlCommand())
+               int userId       = Convert.ToInt32(Request.Form["userId"]);
+               string userName  = Request.Form["username"];
+               string passWord  = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"],"SHA1");
+               string voorNaam  = Request.Form["voornaam"];
+               string achterNaam = Request.Form["achternaam"];
+               string insertAccountQuery = (userName + passWord);
+               TextInput.Text   = insertAccountQuery;
+
+               string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+               string _query = "INSERT INTO [users] (userid, username, password, voornaam, achternaam) VALUES ('" + userId + "', '" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "')";
+               using (SqlConnection conn = new SqlConnection(_connStr))
                {
-                   comm.Connection = conn;
-                   comm.CommandType = CommandType.Text;
-                   comm.CommandText = _query;                  
-                   try
+                   using (SqlCommand comm = new SqlCommand())
                    {
-                       conn.Open();
-                       comm.ExecuteNonQuery();
-                   }
-                   catch (SqlException ex)
-                   {
-                       TextInput.Text = "ERROR";
+                       comm.Connection = conn;
+                       comm.CommandType = CommandType.Text;
+                       comm.CommandText = _query;                  
+                       try
+                       {
+                           conn.Open();
+                           comm.ExecuteNonQuery();
+                       }
+                       catch (SqlException ex)
+                       {
+                           TextInput.Text = "ERROR";
+                       }
                    }
                }
            }
