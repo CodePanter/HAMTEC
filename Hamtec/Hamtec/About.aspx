@@ -13,7 +13,7 @@
             onselectedindexchanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="userid" HeaderText="userid" ReadOnly="True" 
-                    SortExpression="userid" />
+                    SortExpression="userid" InsertVisible="False" />
                 <asp:BoundField DataField="username" HeaderText="username" 
                     SortExpression="username" />
                 <asp:BoundField DataField="password" HeaderText="password" 
