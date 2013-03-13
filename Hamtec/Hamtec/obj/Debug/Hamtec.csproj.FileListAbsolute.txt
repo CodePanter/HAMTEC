@@ -8,3 +8,8 @@ C:\Users\Rob\Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\R
 C:\Users\Rob\Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.dll
 C:\Users\Rob\Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.pdb
 D:\Users\maarten\Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.csprojResolveAssemblyReference.cache
+D:\My Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.csprojResolveAssemblyReference.cache
+D:\My Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.dll
+D:\My Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\obj\Debug\Hamtec.pdb
+D:\My Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\bin\Hamtec.dll
+D:\My Documents\GIT HAMTEC\HAMTEC STACKOVERFLOW\Hamtec\Hamtec\bin\Hamtec.pdb
