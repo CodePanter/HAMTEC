@@ -12,9 +12,9 @@
     <form runat="server">
    
 <div class="header">
-<asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+<asp:LoginView ID="HeadLoginView" EnableViewState="false">
  <AnonymousTemplate>
-    <a href="account/login.aspx">    Login</a> 
+    <a href="/account/login.aspx">    Login</a> 
     <a href="/account/register.aspx">Register</a> 
     <a href="/about.aspx">           About</a> 
  </AnonymousTemplate>

@@ -4,8 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        0.</h2>
+    
     <h2>
         About
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 

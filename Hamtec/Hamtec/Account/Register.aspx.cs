@@ -18,7 +18,6 @@ namespace Hamtec.Account
         {
            if(IsPostBack)
            {
-               int userId       = Convert.ToInt32(Request.Form["userId"]);
                string userName  = Request.Form["username"];
                string passWord  = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"],"SHA1");
                string voorNaam  = Request.Form["voornaam"];
@@ -27,7 +26,7 @@ namespace Hamtec.Account
                TextInput.Text   = insertAccountQuery;
 
                string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-               string _query = "INSERT INTO [users] (userid, username, password, voornaam, achternaam) VALUES ('" + userId + "', '" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "')";
+               string _query = "INSERT INTO [users] (username, password, voornaam, achternaam) VALUES ('" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "')";
                using (SqlConnection conn = new SqlConnection(_connStr))
                {
                    using (SqlCommand comm = new SqlCommand())
