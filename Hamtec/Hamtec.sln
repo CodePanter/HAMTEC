@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Web Developer Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hamtec", "Hamtec\Hamtec.csproj", "{D3E60B1C-EED7-4D71-BA1F-7DC7EE3A13F1}"
 EndProject
 Global
