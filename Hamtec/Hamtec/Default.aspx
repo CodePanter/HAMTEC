@@ -38,7 +38,7 @@
                 <br />
                 <br />
                 Time:
-                <asp:Label ID="timeLabel" runat="server" Text='<%# Eval("time") %>' />
+                <asp:Label ID="timeLabel" runat="server" DataFormatString="{0:dd/MM/yy h:mm tt}" HtmlEncode="false" Text='<%# Eval("time") %>' />
                 &nbsp;&nbsp;&nbsp; Tags:<asp:Label ID="tagsLabel" runat="server" Text='<%# Eval("tags") %>' />
                 &nbsp;Solved:<asp:Label ID="solvedLabel" runat="server" Text='<%# Eval("solved") %>' />
                 <br />
