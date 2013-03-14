@@ -41,6 +41,7 @@ namespace Hamtec.Account
                             else
                             {
                                 TextInput.Text = "Hello " + userName;
+                                Session["username"] = userName;
                             }
                         }
                         catch (SqlException ex)
