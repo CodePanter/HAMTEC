@@ -67,6 +67,7 @@
     <Content Include="App_Data\hamtec_log.ldf">
       <DependentUpon>hamtec.mdf</DependentUpon>
     </Content>
+    <Content Include="newtopic.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="newtopic.aspx.cs">
+      <DependentUpon>newtopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newtopic.aspx.designer.cs">
+      <DependentUpon>newtopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

@@ -17,6 +17,7 @@
    { %>
    <% Response.Write(Session["username"]); %>
    <a href="/Account/myaccount.aspx">    My Account</a> 
+   <a href="/newtopic.aspx">           New Topic</a> 
    <% }
    else
    { %>
@@ -27,6 +28,7 @@
  </AnonymousTemplate>
  <% } %>
  <a href="/about.aspx">           About</a> 
+  <a href="/Default.aspx">          Home</a> 
 </asp:LoginView>
 </div>
 <div class="wrapper">
