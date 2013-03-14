@@ -12,11 +12,12 @@
     <form runat="server">
    
 <div class="header">
+<a href="/Default.aspx">Home</a>
 <asp:LoginView ID="HeadLoginView" EnableViewState="false">
 <% if (Session["username"] != null)
    { %>
-   Hallo <% Session["username"].ToString(); %>
-<% }
+   Hallo <% Response.Write(Session["username"]); 
+   }
    else
    { %>
  <AnonymousTemplate>
