@@ -12,20 +12,21 @@
     <form runat="server">
    
 <div class="header">
-<a href="/Default.aspx">Home</a>
 <asp:LoginView ID="HeadLoginView" EnableViewState="false">
 <% if (Session["username"] != null)
    { %>
-   Hallo <% Response.Write(Session["username"]); 
-   }
+   <% Response.Write(Session["username"]); %>
+   <a href="/Account/myaccount.aspx">    My Account</a> 
+   <% }
    else
    { %>
  <AnonymousTemplate>
     <a href="/account/login.aspx">    Login</a> 
     <a href="/account/register.aspx">Register</a> 
-    <a href="/about.aspx">           About</a> 
+    
  </AnonymousTemplate>
  <% } %>
+ <a href="/about.aspx">           About</a> 
 </asp:LoginView>
 </div>
 <div class="wrapper">
