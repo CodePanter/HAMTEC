@@ -83,6 +83,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Hamtec.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
