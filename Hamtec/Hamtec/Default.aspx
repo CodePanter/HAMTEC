@@ -3,7 +3,8 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
    <div class="homelogo"> <br /><img src="Hamtec.png" alt="Hamtec." width="320" height="240"></div>
-	<div class="recentanswered"> 
+	
+    <div class="recentanswered"> 
 		<p id="title">Recent opgelost</p>
         <% for (int i = 0; i < 5; i++)
            { %>
@@ -46,7 +47,7 @@
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-            SelectCommand="SELECT [message], [subject], [solved], [time], [tags] FROM [topics]">
+            SelectCommand="SELECT [message], [subject], [solved], [time], [tags] FROM [topics] ORDER BY [time] DESC ">
         </asp:SqlDataSource>
 	</div>
 </asp:Content>
