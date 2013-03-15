@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hamtec {
+namespace Hamtec.Account {
     
     
-    public partial class _Default {
+    public partial class myaccount {
         
         /// <summary>
         /// DataList1 control.
