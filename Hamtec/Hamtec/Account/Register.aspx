@@ -15,10 +15,9 @@
         Visible="False"></asp:Label>
     <br />
         <input id="password2" name="password2" type="Password" />Retype Password<br />
-        <input id="email" name="email" type="Text" />Email adres<br /><br />
+        <input id="email" name="email" type="Text" />Email adres<br />
 
-        <input id="voornaam"   name="voornaam" type="Text" />First name<br />
-        <input id="achternaam" name="achternaam" type="Text" />Last name<br />
+        <input id="naam"   name="naam" type="Text" />Name<br />
         <input value="Save" type="Submit" /><br />
     <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
     <br /><br />

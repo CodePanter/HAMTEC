@@ -15,16 +15,16 @@
                     SortExpression="userid" InsertVisible="False" />
                 <asp:BoundField DataField="username" HeaderText="username" 
                     SortExpression="username" />
-                <asp:BoundField DataField="voornaam" HeaderText="voornaam" 
-                    SortExpression="voornaam" />
-                <asp:BoundField DataField="achternaam" HeaderText="achternaam" 
-                    SortExpression="achternaam" />
+                <asp:BoundField DataField="name" HeaderText="name" 
+                    SortExpression="name" />
+                <asp:BoundField DataField="email" HeaderText="email" 
+                    SortExpression="email" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
             
-            SelectCommand="SELECT [userid], [username], [voornaam], [achternaam] FROM [users]"></asp:SqlDataSource>
+            SelectCommand="SELECT [userid], [username], [name], [email] FROM [users]"></asp:SqlDataSource>
     </h2>
     <p>
          <br /><br /><br /><br />	

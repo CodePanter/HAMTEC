@@ -47,16 +47,19 @@ namespace Hamtec.Account
                                string naam = Request.Form["naam"];                             
                                string email = Request.Form["email"];
                                
-                               _query = "INSERT INTO [users] (username, password, voornaam, email) VALUES ('" + userName + "', '" + passWord + "', '" + naam + "', '" + email + "')";
-
+                               _query = "INSERT INTO [users] (username, password, name, email) VALUES ('" + userName + "', '" + passWord + "', '" + naam + "', '" + email + "')";
+                               comm.CommandText = _query;
                                try
                                {
                                    comm.ExecuteNonQuery();
-                                   Label3.Text = "Account " + userName + " aangemaakt. U kunt nu inloggen";
+                                   //Label3.Visible = true;
+                                   //Label3.Text = "Account " + userName + " aangemaakt. U kunt nu inloggen";
                                }
                                catch (SqlException ex)
                                {
                                    //SQL error
+                                   Label3.Visible = true;
+                                   Label3.Text = Convert.ToString(ex);
                                }
                            }
                            else
