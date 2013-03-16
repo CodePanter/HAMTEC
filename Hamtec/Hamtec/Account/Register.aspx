@@ -19,7 +19,9 @@
 
         <input id="voornaam"   name="voornaam" type="Text" />First name<br />
         <input id="achternaam" name="achternaam" type="Text" />Last name<br />
-        <input value="Save" type="Submit" /><br /><br /><br />
+        <input value="Save" type="Submit" /><br />
+    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+    <br /><br />
     </form>
     <br /><br /><br /><br />
 </asp:Content>

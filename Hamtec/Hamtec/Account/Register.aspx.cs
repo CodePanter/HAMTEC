@@ -18,37 +18,45 @@ namespace Hamtec.Account
         {
            if(IsPostBack)
            {
-               string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;                      
+               //DB connectie in string zetten
+               string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;    
+               //DB connectie beginnen, in using zodat de connectie daarna automatisch gesloten wordt   
                using (SqlConnection conn = new SqlConnection(_connStr))
                {
                    using (SqlCommand comm = new SqlCommand())
                    {
+                       //username in string zetten
                        string userName  = Request.Form["username"];
+                       //query om te kijken of username al bestaat
                        string _query = "select count(userid) from users where username = '" + userName + "'";
+                       //connectie settings
                        comm.Connection = conn;
                        comm.CommandType = CommandType.Text;
                        comm.CommandText = _query;
+                       //connectie openen
                        conn.Open();
-                       int count = (int)comm.ExecuteScalar();                       
+                       //sql query uitvoeren
+                       int count = (int)comm.ExecuteScalar();  
+                       //verder met registratie als gebruikersnaam nog niet bestaat
                        if (count == 0)
                        {
                            string passWord = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"], "SHA1");
                            string passWord2 = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password2"], "SHA1");
                            if (passWord == passWord2)
                            {
-                               string voorNaam = Request.Form["voornaam"];
-                               string achterNaam = Request.Form["achternaam"];
+                               string naam = Request.Form["naam"];                             
                                string email = Request.Form["email"];
                                
-                               _query = "INSERT INTO [users] (username, password, voornaam, achternaam, email) VALUES ('" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "', '" + email + "')";
+                               _query = "INSERT INTO [users] (username, password, voornaam, email) VALUES ('" + userName + "', '" + passWord + "', '" + naam + "', '" + email + "')";
 
                                try
                                {
                                    comm.ExecuteNonQuery();
+                                   Label3.Text = "Account " + userName + " aangemaakt. U kunt nu inloggen";
                                }
                                catch (SqlException ex)
                                {
-                                   //TextInput.Text = "ERROR";
+                                   //SQL error
                                }
                            }
                            else

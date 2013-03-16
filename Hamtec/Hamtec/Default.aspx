@@ -38,7 +38,7 @@
             BackColor="#999999" Width="979px" style="margin-left: 5px">
             <AlternatingItemStyle BackColor="#CCCCCC" />
             <ItemTemplate>
-                <b><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /></b>
+                <b><a href='/topics/topics.aspx?topicid=<%# Eval("topicid") %>'><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /></a></b>
                 <br />
                 <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
                 <br />
@@ -53,7 +53,8 @@
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-            SelectCommand="SELECT [message], [subject], [solved], [time], [tags] FROM [topics] ORDER BY [time] DESC ">
+            
+            SelectCommand="SELECT [topicid], [message], [subject], [solved], [time], [tags] FROM [topics] ORDER BY [time] DESC ">
         </asp:SqlDataSource>
 	</div>
 </asp:Content>
