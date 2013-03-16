@@ -25,13 +25,10 @@
             password:
             <asp:Label ID="passwordLabel" runat="server" Text='<%# Eval("password") %>' />
             <br />
-            voornaam:
-            <asp:Label ID="voornaamLabel" runat="server" Text='<%# Eval("voornaam") %>' />
+            Naam:
+            <asp:Label ID="naamLabel" runat="server" Text='<%# Eval("name") %>' />
             <br />
-            achternaam:
-            <asp:Label ID="achternaamLabel" runat="server" 
-                Text='<%# Eval("achternaam") %>' />
-            <br />
+            
             moderator:
             <asp:Label ID="moderatorLabel" runat="server" Text='<%# Eval("moderator") %>' />
             <br />
