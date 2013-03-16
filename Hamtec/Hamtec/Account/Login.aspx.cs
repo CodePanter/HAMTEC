@@ -40,8 +40,8 @@ namespace Hamtec.Account
                             }
                             else
                             {
-                                TextInput.Text = "Hello " + userName;
                                 Session["username"] = userName;
+                                Response.Redirect("/Default.aspx");
                             }
                         }
                         catch (SqlException ex)

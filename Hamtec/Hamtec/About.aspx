@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
     <h2>
-        About
+        Users
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataKeyNames="userid" DataSourceID="SqlDataSource1" 
             onselectedindexchanged="GridView1_SelectedIndexChanged">
@@ -15,21 +15,18 @@
                     SortExpression="userid" InsertVisible="False" />
                 <asp:BoundField DataField="username" HeaderText="username" 
                     SortExpression="username" />
-                <asp:BoundField DataField="password" HeaderText="password" 
-                    SortExpression="password" />
                 <asp:BoundField DataField="voornaam" HeaderText="voornaam" 
                     SortExpression="voornaam" />
                 <asp:BoundField DataField="achternaam" HeaderText="achternaam" 
                     SortExpression="achternaam" />
-                <asp:BoundField DataField="moderator" HeaderText="moderator" 
-                    SortExpression="moderator" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-            SelectCommand="SELECT * FROM [users]"></asp:SqlDataSource>
+            
+            SelectCommand="SELECT [userid], [username], [voornaam], [achternaam] FROM [users]"></asp:SqlDataSource>
     </h2>
     <p>
-        Put content here.  <br /><br /><br /><br />	
+         <br /><br /><br /><br />	
     </p>
 </asp:Content>

@@ -16,52 +16,32 @@
     <asp:DataList ID="DataList1" runat="server" DataKeyField="userid" 
         DataSourceID="SqlDataSource1">        
         <ItemTemplate>
-            <table class="style1">
-                <tr>
-                    <td>
-                        Userid</td>
-                    <td>
-                        <asp:Label ID="useridLabel" runat="server" Text='<%# Eval("userid") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Username</td>
-                    <td>
-                        <asp:Label ID="usernameLabel" runat="server" Text='<%# Eval("username") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Password</td>
-                    <td>
-                        <asp:Label ID="passwordLabel" runat="server" Text='<%# Eval("password") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Voornaam</td>
-                    <td>
-                        <asp:Label ID="voornaamLabel" runat="server" Text='<%# Eval("voornaam") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Achternaam</td>
-                    <td>
-                        <asp:Label ID="achternaamLabel" runat="server" 
-                            Text='<%# Eval("achternaam") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Moderator</td>
-                    <td>
-                        <asp:Label ID="moderatorLabel" runat="server" Text='<%# Eval("moderator") %>' />
-                    </td>
-                </tr>
-            </table>
+            userid:
+            <asp:Label ID="useridLabel" runat="server" Text='<%# Eval("userid") %>' />
 <br />
+            username:
+            <asp:Label ID="usernameLabel" runat="server" Text='<%# Eval("username") %>' />
+            <br />
+            password:
+            <asp:Label ID="passwordLabel" runat="server" Text='<%# Eval("password") %>' />
+            <br />
+            voornaam:
+            <asp:Label ID="voornaamLabel" runat="server" Text='<%# Eval("voornaam") %>' />
+            <br />
+            achternaam:
+            <asp:Label ID="achternaamLabel" runat="server" 
+                Text='<%# Eval("achternaam") %>' />
+            <br />
+            moderator:
+            <asp:Label ID="moderatorLabel" runat="server" Text='<%# Eval("moderator") %>' />
+            <br />
+            email:
+            <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+            <br />
+            rating:
+            <asp:Label ID="ratingLabel" runat="server" Text='<%# Eval("rating") %>' />
+            <br />
+            <br />
         </ItemTemplate>
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 

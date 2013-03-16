@@ -27,7 +27,7 @@
     
  </AnonymousTemplate>
  <% } %>
- <a href="/about.aspx">           About</a> 
+ <a href="/about.aspx">           Users</a> 
   <a href="/Default.aspx">          Home</a> 
 </asp:LoginView>
 </div>

@@ -4,6 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <h1>Login</h1>
     <form method="POST" action="register.aspx" name="registerForm"><br />        
         <input id="username" name="username" type="Text" />Username<br />
         <input id="password" name="password" type="Password" />Password<br />

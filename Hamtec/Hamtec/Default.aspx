@@ -11,7 +11,13 @@
 		<div class="recenttitle"> bam</div>
 		<% } %>
 	</div>
-	<div class="recentactivity"> <p id="title">Recent beantwoord</p> </div>
+	<div class="recentactivity"> <p id="title">Recent beantwoord</p> 
+     <% for (int i = 0; i < 5; i++)
+           { %>
+		<div class="recenttitle"> bam</div>
+		<% } %>
+    
+    </div>
 	<div class="topiclist">
     <!--
     <% for (int i = 0; i < 9; i++)

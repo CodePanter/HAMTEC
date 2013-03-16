@@ -18,30 +18,51 @@ namespace Hamtec.Account
         {
            if(IsPostBack)
            {
-               string userName  = Request.Form["username"];
-               string passWord  = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"],"SHA1");
-               string voorNaam  = Request.Form["voornaam"];
-               string achterNaam = Request.Form["achternaam"];
-               string insertAccountQuery = (userName + passWord);
-               TextInput.Text   = insertAccountQuery;
-
-               string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-               string _query = "INSERT INTO [users] (username, password, voornaam, achternaam) VALUES ('" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "')";
+               string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;                      
                using (SqlConnection conn = new SqlConnection(_connStr))
                {
                    using (SqlCommand comm = new SqlCommand())
                    {
+                       string userName  = Request.Form["username"];
+                       string _query = "select count(userid) from users where username = '" + userName + "'";
                        comm.Connection = conn;
                        comm.CommandType = CommandType.Text;
-                       comm.CommandText = _query;                  
-                       try
+                       comm.CommandText = _query;
+                       conn.Open();
+                       int count = (int)comm.ExecuteScalar();                       
+                       if (count == 0)
                        {
-                           conn.Open();
-                           comm.ExecuteNonQuery();
+                           string passWord = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"], "SHA1");
+                           string passWord2 = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password2"], "SHA1");
+                           if (passWord == passWord2)
+                           {
+                               string voorNaam = Request.Form["voornaam"];
+                               string achterNaam = Request.Form["achternaam"];
+                               string email = Request.Form["email"];
+                               
+                               _query = "INSERT INTO [users] (username, password, voornaam, achternaam, email) VALUES ('" + userName + "', '" + passWord + "', '" + voorNaam + "', '" + achterNaam + "', '" + email + "')";
+
+                               try
+                               {
+                                   comm.ExecuteNonQuery();
+                               }
+                               catch (SqlException ex)
+                               {
+                                   //TextInput.Text = "ERROR";
+                               }
+                           }
+                           else
+                           {
+                                //als wachtwoorden niet overeenkomen
+                               Label2.Visible = true;
+                               Label2.Text = "Wachtwoorden komen niet overeen";
+                           }
                        }
-                       catch (SqlException ex)
+                       else
                        {
-                           TextInput.Text = "ERROR";
+                           //als gebruiker bestaat 
+                           Label1.Visible = true;
+                           Label1.Text = "Gebruiker bestaat al";
                        }
                    }
                }
