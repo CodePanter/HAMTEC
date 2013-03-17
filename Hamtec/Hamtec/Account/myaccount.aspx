@@ -16,29 +16,58 @@
     <asp:DataList ID="DataList1" runat="server" DataKeyField="userid" 
         DataSourceID="SqlDataSource1">        
         <ItemTemplate>
-            userid:
-            <asp:Label ID="useridLabel" runat="server" Text='<%# Eval("userid") %>' />
-<br />
-            username:
-            <asp:Label ID="usernameLabel" runat="server" Text='<%# Eval("username") %>' />
-            <br />
-            password:
-            <asp:Label ID="passwordLabel" runat="server" Text='<%# Eval("password") %>' />
-            <br />
-            Naam:
-            <asp:Label ID="naamLabel" runat="server" Text='<%# Eval("name") %>' />
-            <br />
-            
-            moderator:
-            <asp:Label ID="moderatorLabel" runat="server" Text='<%# Eval("moderator") %>' />
-            <br />
-            email:
-            <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
-            <br />
-            rating:
-            <asp:Label ID="ratingLabel" runat="server" Text='<%# Eval("rating") %>' />
-            <br />
-            <br />
+            <table>
+                <th colspan="2">Account</th>
+                <tr>
+                    <td>
+                        userid:
+                    </td>
+                    <td>
+                        <asp:Label ID="useridLabel" runat="server" Text='<%# Eval("userid") %>' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        username:
+                    </td>
+                    <td>
+                        <asp:Label ID="usernameLabel" runat="server" Text='<%# Eval("username") %>' />
+                    </td>                
+                <tr>
+                    <td>
+                        Naam:
+                    </td>
+                    <td>
+                        <asp:Label ID="naamLabel" runat="server" Text='<%# Eval("name") %>' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        email:
+                    </td>
+                    <td>
+                        <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+                    </td>
+                </tr>
+                
+               <th colspan="2">Statistics</th>
+               <tr>
+               <td>
+                    Rating:
+               </td>
+               <td>
+                    <asp:Label ID="ratingLabel" runat="server" Text='<%# Eval("rating") %>' />
+               </td>
+               </tr>
+               <tr>
+               <td>
+                    Badges:
+               </td>
+               <td>
+                    
+               </td>
+               </tr>               
+            </table>
         </ItemTemplate>
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
@@ -49,7 +78,49 @@
                 Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-
+    
+    <form method="post" name="changepw" id="changepw">
+            <table >
+                   <th colspan="2">Password</th>
+                   <tr>
+                   <td>
+                        Old password:
+                   </td>
+                   <td>
+                         <input id="oldpassword" name="oldpassword" type="Password" />                         
+                         <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="Red" 
+                             Visible="False"></asp:Label>
+                   </td>
+                   </tr>
+                   <tr>
+                   <td>
+                        New password:
+                   </td>
+                   <td>
+                         <input id="password" name="password" type="Password" />
+                         </td>
+                   </tr>
+                   <tr>
+                   <td>
+                        Retype password:
+                   </td>
+                   <td>
+                        <input id="password2" name="password2" type="Password" />
+                   </td>
+                   </tr>
+                    <tr>
+                   <td>
+                       
+                   </td>
+                   <td>
+                        <input type="submit" id="savepw" name="savepw" value="Save" />
+                         <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="Black" 
+                            Visible="False"></asp:Label>
+                   </td>
+                   </tr>
+             </table>
+      </form>    
+   
     
 
     <br /><br /><br />
