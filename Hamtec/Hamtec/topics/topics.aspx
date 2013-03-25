@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <br /><br />
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br />
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    <br /><br /><br /><br /><br /><br />
     <p>
     </p>
 </asp:Content>
