@@ -35,7 +35,8 @@
 		</div>
         <% } %>	      -->
 	    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
-            BackColor="#999999" Width="979px" style="margin-left: 5px">
+            BackColor="#999999" Width="979px" style="margin-left: 5px" 
+            onselectedindexchanged="DataList1_SelectedIndexChanged">
             <AlternatingItemStyle BackColor="#CCCCCC" />
             <ItemTemplate>
                 <b><a href='/topics/topics.aspx?topicid=<%# Eval("topicid") %>'><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /></a></b>
@@ -46,6 +47,7 @@
                 Time:
                 <asp:Label ID="timeLabel" runat="server" DataFormatString="{0:dd/MM/yy h:mm tt}" HtmlEncode="false" Text='<%# Eval("time") %>' />
                 &nbsp;&nbsp;&nbsp; Tags:<asp:Label ID="tagsLabel" runat="server" Text='<%# Eval("tags") %>' />
+                 &nbsp;&nbsp;&nbsp; Categorie:<asp:Label ID="categorie" runat="server" Text='<%# Eval("categorie") %>' />
                 &nbsp;Solved:<asp:Label ID="solvedLabel" runat="server" Text='<%# Eval("solved") %>' />
                 <br />
                 <br />
