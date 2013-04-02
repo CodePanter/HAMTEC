@@ -18,6 +18,8 @@
         <input id="email" name="email" type="Text" />Email adres<br />
 
         <input id="naam"   name="naam" type="Text" />Name<br />
+        <input id="city"   name="city" type="Text" />City<br />
+        <input id="adress"   name="adress" type="Text" />Adress<br />
         <input value="Save" type="Submit" /><br />
     <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
     <br /><br />

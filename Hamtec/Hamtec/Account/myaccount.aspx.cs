@@ -17,7 +17,6 @@ namespace Hamtec.Account
         {
             string imgpng = "/profile/" + Session["username"] + ".png";
             string imgjpg = "/profile/" + Session["username"] + ".jpg";
-
             if (File.Exists(Server.MapPath(imgpng)))
             {
                 profileimg.Src = imgpng;
