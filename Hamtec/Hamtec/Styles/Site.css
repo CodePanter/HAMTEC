@@ -12,6 +12,20 @@ line-height: 50%;
     color: White;
     margin: 5px 0 0 0;
 }
+#centertable
+{
+    margin: auto;
+}
+#centertable #td120
+{
+    width: 120px;
+}
+.centerdiv
+{
+ margin: auto;
+ width: 275px;  
+  
+}
 .header
 {
 width: 100%;

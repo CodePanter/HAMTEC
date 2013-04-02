@@ -11,7 +11,11 @@ namespace Hamtec
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Request.QueryString["logout"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("/Default.aspx");
+            }
         }
     }
 }

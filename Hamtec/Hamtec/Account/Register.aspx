@@ -4,25 +4,48 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h1>Registration</h1>
-    <form method="POST" action="register.aspx" name="registerForm"><br />        
-        <input id="username" name="username" type="Text" />Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="Label" 
-        Visible="False"></asp:Label>
-    <br />
-        <input id="password" name="password" type="Password" />Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="Label" 
-        Visible="False"></asp:Label>
-    <br />
-        <input id="password2" name="password2" type="Password" />Retype Password<br />
-        <input id="email" name="email" type="Text" />Email adres<br />
+<form method="POST" action="register.aspx" name="registerForm"><br /> 
+<table id="centertable">
+    <tr>
+        <th colspan=2><h1>Registration</h1></th>
+    </tr>    
+    <tr>
+        <td id="td120">Username</td>
+        <td><input id="username" name="username" type="Text" /></td>
+        <td><asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="Label" Visible="False"></asp:Label></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input id="password" name="password" type="Password" /></td>
+        <td><asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="Label" Visible="False"></asp:Label></td>
+    </tr>   
+    <tr>
+        <td>Retype password</td>
+        <td><input id="password2" name="password2" type="Password" /></td>
+    </tr>
+    <tr>
+        <td>Email adress</td>
+        <td><input id="email" name="email" type="Text" /></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><input id="naam"   name="naam" type="Text" /></td>
+    </tr>
+     <tr>
+        <td>City</td>
+        <td><input id="city"   name="city" type="Text" /></td>
+    </tr>
+    <tr>
+        <td>Adress</td>
+        <td><input id="adress"   name="adress" type="Text" /></td>    
+    </tr>
+    <tr>
+        <td></td>
+        <td><input value="Save" type="Submit" /></td>
+        <td><asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label></td>
+    </tr>    
+    </table>
+</form>
 
-        <input id="naam"   name="naam" type="Text" />Name<br />
-        <input id="city"   name="city" type="Text" />City<br />
-        <input id="adress"   name="adress" type="Text" />Adress<br />
-        <input value="Save" type="Submit" /><br />
-    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-    <br /><br />
-    </form>
     <br /><br /><br /><br />
 </asp:Content>
