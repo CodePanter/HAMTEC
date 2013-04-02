@@ -41,7 +41,6 @@ namespace Hamtec.Account
                             else
                             {
                                 Session["username"] = userName;
-                                Response.Redirect("/Default.aspx");
                             }
                         }
                         catch (SqlException ex)
@@ -60,7 +59,7 @@ namespace Hamtec.Account
                     {
                         comm.Connection = conn;
                         comm.CommandType = CommandType.Text;
-                        comm.CommandText = _query;
+                        comm.CommandText = _query2;
                         try
                         {
                             conn.Open();
@@ -68,7 +67,7 @@ namespace Hamtec.Account
 
                             _res = (Int64)comm.ExecuteScalar(); //resultaat van de query komt in deze string
                             Session["userid"] = _res;
-
+                            Response.Redirect("/Default.aspx");
                         }
                         catch (SqlException ex)
                         {
