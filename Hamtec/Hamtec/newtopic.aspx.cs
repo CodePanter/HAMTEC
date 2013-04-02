@@ -24,9 +24,10 @@ namespace Hamtec
                 string subject = Request.Form["subject"];
                 string question = Request.Form["question"];
                 string tag = Request.Form["tag"];
-               
+                string categorie = DropDownList1.SelectedValue;
+
                 string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-                string _query = "INSERT INTO [topics] (subject, userid, message, tags) VALUES ('" + subject + "', 2, '" + question + "', '" + tag + "')";
+                string _query = "INSERT INTO [topics] (subject, userid, message, tags, categorie) VALUES ('" + subject + "', 2, '" + question + "', '" + tag + "', '" + categorie +"')";
                 using (SqlConnection conn = new SqlConnection(_connStr))
                 {
                     using (SqlCommand comm = new SqlCommand())
