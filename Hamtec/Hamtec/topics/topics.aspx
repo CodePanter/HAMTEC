@@ -4,17 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <br /><br />
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-<<<<<<< HEAD
-    <br /><br />
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-    <br /><br /><br /><br /><br /><br />
-=======
 
     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     <br /><br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
         <ItemTemplate>
-            The question was:
+            De vraag was:
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
             <br />
 <br />
@@ -41,7 +36,7 @@
         </asp:TextBox>
         <br />
         <asp:Button ID="Button1" runat="server" Text="Button" 
-        onclick="Button1_Click" />
+        onclick="Button1_Click" style="height: 26px" />
    <% }
    else
    { %>
@@ -73,7 +68,6 @@
     <br /><br />
         
     <br /><br />
->>>>>>> 2e3637ab653e22ee83c85047c5f4db9d5094009c
     <p>
     </p>
 </asp:Content>

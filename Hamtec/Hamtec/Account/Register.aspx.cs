@@ -46,8 +46,9 @@ namespace Hamtec.Account
                            {
                                string naam = Request.Form["naam"];                             
                                string email = Request.Form["email"];
-                               
-                               comm.CommandText = "INSERT INTO [users] (username, password, name, email) VALUES ('" + userName + "', '" + passWord + "', '" + naam + "', '" + email + "')";
+                               string city = Request.Form["city"];
+                               string adress = Request.Form["adress"];
+                               comm.CommandText = "INSERT INTO [users] (username, password, name, email, city, adress) VALUES ('" + userName + "', '" + passWord + "', '" + naam + "', '" + email + "','" + city + "', '" + adress +"')";
                                try
                                {
                                    comm.ExecuteNonQuery();

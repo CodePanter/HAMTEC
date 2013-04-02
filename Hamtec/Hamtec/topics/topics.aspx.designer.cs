@@ -29,8 +29,6 @@ namespace Hamtec.topics {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-<<<<<<< HEAD
-=======
         
         /// <summary>
         /// DataList1 control.
@@ -85,6 +83,5 @@ namespace Hamtec.topics {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
->>>>>>> 2e3637ab653e22ee83c85047c5f4db9d5094009c
     }
 }

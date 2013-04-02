@@ -17,10 +17,6 @@
     </form>
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
     
 
@@ -46,7 +42,7 @@
                     </td>                
                 <tr>
                     <td>
-                        Naam:
+                        Name:
                     </td>
                     <td>
                         <asp:Label ID="naamLabel" runat="server" Text='<%# Eval("name") %>' />
@@ -58,6 +54,23 @@
                     </td>
                     <td>
                         <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        City:
+                    </td>
+                    <td>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("city") %>' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Adress:
+                    </td>
+                    <td>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("adress") %>' />
                     </td>
                 </tr>
                 

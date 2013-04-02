@@ -45,7 +45,7 @@ namespace Hamtec.topics
                     }
                     catch (SqlException ex)
                     {
-                        Label2.Text = Convert.ToString(ex);
+                        Label2.Text += Convert.ToString(ex);
                     }
                 }
 
