@@ -8,16 +8,47 @@ using System.Web.UI.WebControls;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 namespace Hamtec.Account
 {
     public partial class myaccount : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string imgpng = "/profile/" + Session["username"] + ".png";
+            string imgjpg = "/profile/" + Session["username"] + ".jpg";
+
+            if (File.Exists(Server.MapPath(imgpng)))
+            {
+                profileimg.Src = imgpng;
+            }
+            else if (File.Exists(Server.MapPath(imgjpg)))
+            {
+                profileimg.Src = imgjpg;
+            }
+
             if (Session["username"] != null)
             {
                 if (IsPostBack)
                 {
+
+                    if (FileUpload1.HasFile)
+                        try
+                        {
+                            string filename = Session["username"] + "." + FileUpload1.PostedFile.FileName.Substring(FileUpload1.PostedFile.FileName.IndexOf('.') + 1);  
+                            FileUpload1.SaveAs(Server.MapPath("/profile/" + filename));
+                            //Label1.Text = "File name: " +
+                            //     FileUpload1.PostedFile.FileName + "<br>" +
+                            //     FileUpload1.PostedFile.ContentLength + " kb<br>" +
+                            //     "Content type: " +
+                            //     FileUpload1.PostedFile.ContentType;
+                                                      
+                        }
+                        catch (Exception ex)
+                        {
+                            //Label1.Text = "ERROR: " + ex.Message.ToString();
+                        }
+
                     if (Request.Form["savepw"] != null)
                     {
                         string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;

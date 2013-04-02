@@ -1,14 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="myaccount.aspx.cs" Inherits="Hamtec.Account.myaccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+
+    
+
+    <br />
+    <br />
+    <img id="profileimg" name="profileimg" src="" runat="server"/>
+    <br />
+    <form method="post" name="changepic" id="Form2">
+        <asp:FileUpload ID="FileUpload1" runat="server" />
+        <input type="submit" name="savepic" id="savepic" />
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <br />
 
     
