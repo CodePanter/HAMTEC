@@ -1,4 +1,6 @@
-﻿body { background-color: #ccc; }
+﻿body { background-color: #ccc;
+    font-weight: 700;
+}
 #title
 {
 text-align: center;
