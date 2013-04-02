@@ -3,7 +3,8 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
    <div class="homelogo"> <br /><img src="Hamtec.png" alt="Hamtec." width="320" height="240"></div>
-	
+	<embed src="intro.mp3" height="2" width="2" 
+    autostart="true" hidden="true" loop="false">
     <div class="recentanswered"> 
 		<p id="title">Recently solved</p>
         <% for (int i = 0; i < 5; i++)
