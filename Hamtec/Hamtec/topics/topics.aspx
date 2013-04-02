@@ -9,7 +9,7 @@
     <br /><br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
         <ItemTemplate>
-            The question was:
+            De vraag was:
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
             <br />
 <br />
@@ -36,7 +36,7 @@
         </asp:TextBox>
         <br />
         <asp:Button ID="Button1" runat="server" Text="Button" 
-        onclick="Button1_Click" />
+        onclick="Button1_Click" style="height: 26px" />
    <% }
    else
    { %>
