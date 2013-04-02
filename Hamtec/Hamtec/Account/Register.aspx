@@ -42,7 +42,9 @@
     <tr>
         <td></td>
         <td><input value="Save" type="Submit" /></td>
-        <td><asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label></td>
+    </tr>
+    <tr>
+        <td colspan=2><asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label></td>
     </tr>    
     </table>
 </form>

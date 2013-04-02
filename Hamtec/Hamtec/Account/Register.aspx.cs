@@ -52,8 +52,8 @@ namespace Hamtec.Account
                                try
                                {
                                    comm.ExecuteNonQuery();
-                                   //Label3.Visible = true;
-                                   //Label3.Text = "Account " + userName + " aangemaakt. U kunt nu inloggen";
+                                   Label3.Visible = true;
+                                   Label3.Text = "Account " + userName + " created. You can now login";
                                }
                                catch (SqlException ex)
                                {

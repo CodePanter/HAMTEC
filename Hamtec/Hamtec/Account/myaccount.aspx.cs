@@ -14,20 +14,24 @@ namespace Hamtec.Account
     public partial class myaccount : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            string imgpng = "/profile/" + Session["username"] + ".png";
-            string imgjpg = "/profile/" + Session["username"] + ".jpg";
-            if (File.Exists(Server.MapPath(imgpng)))
-            {
-                profileimg.Src = imgpng;
-            }
-            else if (File.Exists(Server.MapPath(imgjpg)))
-            {
-                profileimg.Src = imgjpg;
-            }
-
+        {            
+            //controleren of gebruiker is ingelogd
             if (Session["username"] != null)
             {
+                //mogelijke afbeeldingen in een string zetten
+                string imgpng = "/profile/" + Session["username"] + ".png";
+                string imgjpg = "/profile/" + Session["username"] + ".jpg";
+                //controleren of de png bestaat
+                if (File.Exists(Server.MapPath(imgpng)))
+                {
+                    profileimg.Src = imgpng;
+                }
+                //controleren of de jpg bestaat
+                else if (File.Exists(Server.MapPath(imgjpg)))
+                {
+                    profileimg.Src = imgjpg;
+                }
+                //controleren of post is verstuurd
                 if (IsPostBack)
                 {
 
@@ -47,9 +51,10 @@ namespace Hamtec.Account
                         {
                             //Label1.Text = "ERROR: " + ex.Message.ToString();
                         }
-
+                    //controleren of password reuqest post is verstuurd
                     if (Request.Form["savepw"] != null)
-                    {
+                    {   
+                        //connection string ophalen en daarna database connectie beginnen
                         string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
                         string _query = "select count(userid) from users where username = '" + Session["username"] + "' and password = '" + FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["oldpassword"], "SHA1") + "'";
                         using (SqlConnection conn = new SqlConnection(_connStr))
@@ -65,13 +70,16 @@ namespace Hamtec.Account
                                     int count = (int)comm.ExecuteScalar();
                                     if (count == 1)
                                     {
+                                        //controleren of wachtwoorden overeenkomen
                                         string pw1 = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password"], "SHA1");
                                         string pw2 = FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["password2"], "SHA1");
                                         if (pw1 == pw2)
                                         {
+                                            //controleren of  oude wachtwoord klopt
                                             comm.CommandText = "UPDATE users set password = '" + pw1 + "' where username = '" + Session["username"] + "'";
                                             comm.ExecuteNonQuery();
                                             Label2.Visible = true;
+                                            //weergeven dat het wachtwoord is gewijzigt
                                             Label2.Text = "Wachtwoord is gewijzigt";
                                         }
                                         else
@@ -96,13 +104,14 @@ namespace Hamtec.Account
                     }
                     else
                     {
-                        Label1.Text = "Balen";
+                       
                     }
                 }
 
             }
             else
             {
+                //user terugsturen als er niet is ingelogd
                 Response.Redirect("/Default.aspx");
             }
         }
