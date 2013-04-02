@@ -50,6 +50,36 @@ namespace Hamtec.Account
                         }
                     }
                 }
+
+                string _query2 = "SELECT [userid] FROM [users] WHERE [username] = '" + userName + "'";
+                Int64 _res = 0;
+
+                using (SqlConnection conn = new SqlConnection(_connStr))
+                {
+                    using (SqlCommand comm = new SqlCommand())
+                    {
+                        comm.Connection = conn;
+                        comm.CommandType = CommandType.Text;
+                        comm.CommandText = _query;
+                        try
+                        {
+                            conn.Open();
+
+
+                            _res = (Int64)comm.ExecuteScalar(); //resultaat van de query komt in deze string
+                            Session["userid"] = _res;
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            TextInput.Text = Convert.ToString(ex);
+                        }
+                    }
+
+
+
+
+                }
             }
         }
     }

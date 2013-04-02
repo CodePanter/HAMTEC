@@ -5,13 +5,13 @@
    <div class="homelogo"> <br /><img src="Hamtec.png" alt="Hamtec." width="320" height="240"></div>
 	
     <div class="recentanswered"> 
-		<p id="title">Recent opgelost</p>
+		<p id="title">Recently solved</p>
         <% for (int i = 0; i < 5; i++)
            { %>
 		<div class="recenttitle"> bam</div>
 		<% } %>
 	</div>
-	<div class="recentactivity"> <p id="title">Recent beantwoord</p> 
+	<div class="recentactivity"> <p id="title">Recently answered</p> 
      <% for (int i = 0; i < 5; i++)
            { %>
 		<div class="recenttitle"> bam</div>
@@ -46,7 +46,7 @@
                 Time:
                 <asp:Label ID="timeLabel" runat="server" DataFormatString="{0:dd/MM/yy h:mm tt}" HtmlEncode="false" Text='<%# Eval("time") %>' />
                 &nbsp;&nbsp;&nbsp; Tags:<asp:Label ID="tagsLabel" runat="server" Text='<%# Eval("tags") %>' />
-                &nbsp;&nbsp;&nbsp; Categorie:<asp:Label ID="categorie" runat="server" Text='<%# Eval("categorie") %>' />
+                &nbsp;&nbsp;&nbsp; Category:<asp:Label ID="categorie" runat="server" Text='<%# Eval("categorie") %>' />
                 &nbsp;Solved:<asp:Label ID="solvedLabel" runat="server" Text='<%# Eval("solved") %>' />
                 <br />
                 <br />
