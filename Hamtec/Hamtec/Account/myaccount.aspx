@@ -46,7 +46,7 @@
                     </td>                
                 <tr>
                     <td>
-                        Naam:
+                        Name:
                     </td>
                     <td>
                         <asp:Label ID="naamLabel" runat="server" Text='<%# Eval("name") %>' />

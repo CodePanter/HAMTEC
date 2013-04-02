@@ -9,7 +9,7 @@
     <br /><br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
         <ItemTemplate>
-            De vraag was:
+            The question was:
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
             <br />
 <br />
