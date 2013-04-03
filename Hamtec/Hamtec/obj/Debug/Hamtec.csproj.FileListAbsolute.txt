@@ -23,3 +23,8 @@ C:\Users\Wessel\Desktop\Hamtec\Hamtec\bin\Hamtec.pdb
 C:\Users\Wessel\Desktop\Hamtec\Hamtec\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Wessel\Desktop\Hamtec\Hamtec\obj\Debug\Hamtec.dll
 C:\Users\Wessel\Desktop\Hamtec\Hamtec\obj\Debug\Hamtec.pdb
+C:\Users\Sander de Jong\Documents\git hamtec\GIT HAMTEC\Hamtec\Hamtec\bin\Hamtec.dll
+C:\Users\Sander de Jong\Documents\git hamtec\GIT HAMTEC\Hamtec\Hamtec\bin\Hamtec.pdb
+C:\Users\Sander de Jong\Documents\git hamtec\GIT HAMTEC\Hamtec\Hamtec\obj\Debug\Hamtec.csprojResolveAssemblyReference.cache
+C:\Users\Sander de Jong\Documents\git hamtec\GIT HAMTEC\Hamtec\Hamtec\obj\Debug\Hamtec.dll
+C:\Users\Sander de Jong\Documents\git hamtec\GIT HAMTEC\Hamtec\Hamtec\obj\Debug\Hamtec.pdb
