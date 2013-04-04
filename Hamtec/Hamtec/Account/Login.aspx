@@ -22,7 +22,7 @@
             <td><input value="Login" type="Submit" /></td>
         </tr>         
         <tr>
-            <td colspan="2">Havent got an account? <a href="register.aspx">Register</a></td>
+            <td colspan="2">No account? <a href="register.aspx">Register</a></td>
         </tr>
         </table>
     </form>        

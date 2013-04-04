@@ -65,7 +65,24 @@
             <asp:SessionParameter Name="username" SessionField="username" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <br /><br />
+    <br />
+    <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3">
+        <ItemTemplate>
+            message:
+            <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
+            <br />
+<br />
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
+        SelectCommand="SELECT [message] FROM [posts] WHERE ([topicid] = @topicid)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="topicid" QueryStringField="topicid" 
+                Type="Int64" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <br />
         
     <br /><br />
     <p>
