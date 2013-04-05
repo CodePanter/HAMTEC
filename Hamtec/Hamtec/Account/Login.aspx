@@ -4,7 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">    
-    <form method="POST" action="register.aspx" name="registerForm"><br />  
+    <form method="POST" action="login.aspx" name="inlogForm"><br />  
         <table id="centertable">   
         <tr>
             <th colspan="2" align=center><h1>Login</h1></th>
