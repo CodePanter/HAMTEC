@@ -18,21 +18,7 @@
     
     </div>
 	<div class="topiclist">
-    <!--
-    <% for (int i = 0; i < 9; i++)
-       { %>
-		<div class="topicwrapper"> 
-			<p id="subject">Hier komt de subject van een vraag op de website</p>
-			<div id="tagscontainer">
-				06-02-2013 13:37  
-				<a id="tags" href="tags">tags</a>
-				<a id="tags" href="tags">tags</a>
-				<a id="tags" href="tags">tags</a>				
-			</div>
-			<div id="answers">Answers:  <div id="count">0</div></div>
-			<div id="solved">Solved:<img src="cross.png" height="40px"></div>
-		</div>
-        <% } %>	      -->
+  
 	    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
             BackColor="#999999" Width="979px" style="margin-left: 5px" >
             <AlternatingItemStyle BackColor="#CCCCCC" />
