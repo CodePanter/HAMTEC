@@ -17,7 +17,7 @@
                 <td><input type="submit" name="savepic" id="savepic" value="Save new avatar" /></td>
             </tr>           
         </table>
-    </form>
+    
     
     <asp:DataList ID="DataList1" runat="server" DataKeyField="userid" 
         DataSourceID="SqlDataSource1" style="margin: auto;">        
@@ -68,7 +68,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     
-    <form method="post" name="changepw" id="changepw">
+   
             <table id="centertable" >
                    <th colspan="2"><h2>Change Password</h2></th>
                    <tr>

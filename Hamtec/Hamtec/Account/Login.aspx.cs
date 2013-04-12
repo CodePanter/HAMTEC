@@ -47,7 +47,6 @@ namespace Hamtec.Account
                                 //Sessie aanmaken waarin de gebruikersnaam komt
                                 Session["username"] = userName;
                                 //Website doorsturen naar de homepage
-                                Response.Redirect("/Default.aspx");
                             }
                         }
                         catch (SqlException ex)
@@ -67,7 +66,7 @@ namespace Hamtec.Account
                     {
                         comm.Connection = conn;
                         comm.CommandType = CommandType.Text;
-                        comm.CommandText = _query;
+                        comm.CommandText = _query2;
                         try
                         {
                             conn.Open();
@@ -86,6 +85,33 @@ namespace Hamtec.Account
 
 
                 }
+                //query voor moederator session
+                string _query3 = "SELECT [moderator] FROM [users] WHERE [username] = '" + userName + "'";
+                byte _mod = 0;
+
+                using (SqlConnection conn = new SqlConnection(_connStr))
+                {
+                    using (SqlCommand comm = new SqlCommand())
+                    {
+                        comm.Connection = conn;
+                        comm.CommandType = CommandType.Text;
+                        comm.CommandText = _query3;
+                        try
+                        {
+                            conn.Open();
+                            //userid opslaan in een session
+                            _mod = (byte)comm.ExecuteScalar(); //resultaat van de query komt in deze string
+                            Session["moderator"] = _mod;
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            TextInput.Text = Convert.ToString(ex);
+                        }
+                    }
+                }
+
+                Response.Redirect("/Default.aspx");
             }
         }
     }

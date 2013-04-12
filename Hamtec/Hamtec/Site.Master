@@ -16,8 +16,8 @@
 <asp:LoginView ID="HeadLoginView" EnableViewState="false">
 <% if (Session["username"] != null)
    { %>
-   <% Response.Write(Session["username"]); %>
-   <a href="/Account/myaccount.aspx">    My Account</a> 
+   <% Response.Write(Session["username"]);%>
+   <a href="/Account/myaccount.aspx">    My Account</a>    
    <a href="?logout=true">          Logout</a>
    <a href="/newtopic.aspx">           New Topic</a> 
    <% }
