@@ -38,22 +38,22 @@ namespace Hamtec.Account
                     if (FileUpload1.HasFile)
                         try
                         {
-                            string filename = Session["username"] + "." + FileUpload1.PostedFile.FileName.Substring(FileUpload1.PostedFile.FileName.IndexOf('.') + 1);  
+                            string filename = Session["username"] + "." + FileUpload1.PostedFile.FileName.Substring(FileUpload1.PostedFile.FileName.IndexOf('.') + 1);
                             FileUpload1.SaveAs(Server.MapPath("/profile/" + filename));
                             //Label1.Text = "File name: " +
                             //     FileUpload1.PostedFile.FileName + "<br>" +
                             //     FileUpload1.PostedFile.ContentLength + " kb<br>" +
                             //     "Content type: " +
                             //     FileUpload1.PostedFile.ContentType;
-                                                      
+
                         }
                         catch (Exception ex)
                         {
                             //Label1.Text = "ERROR: " + ex.Message.ToString();
                         }
                     //controleren of password reuqest post is verstuurd
-                    if (Request.Form["savepw"] != null)
-                    {   
+                    if (Request.Form["oldpassword"] != null)
+                    {
                         //connection string ophalen en daarna database connectie beginnen
                         string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
                         string _query = "select count(userid) from users where username = '" + Session["username"] + "' and password = '" + FormsAuthentication.HashPasswordForStoringInConfigFile(Request.Form["oldpassword"], "SHA1") + "'";
@@ -80,10 +80,12 @@ namespace Hamtec.Account
                                             comm.ExecuteNonQuery();
                                             Label2.Visible = true;
                                             //weergeven dat het wachtwoord is gewijzigt
-                                            Label2.Text = "Wachtwoord is gewijzigt";
+                                            Label2.Text = "Password changed";
                                         }
                                         else
                                         {
+                                            Label1.Visible = true;
+                                            Label1.Text = "New passwords dont match";
                                             //wachtwoorden komen niet overeen
                                         }
 
@@ -92,11 +94,12 @@ namespace Hamtec.Account
                                     {
                                         //oude wachtwoord klopt niet
                                         Label1.Visible = true;
-                                        Label1.Text = "Wachtwoord klopt niet";
+                                        Label1.Text = "Old password is wrong";
                                     }
                                 }
-                                catch(SqlException ex)
+                                catch (SqlException ex)
                                 {
+                                    Label1.Visible = true;
                                     Label1.Text = Convert.ToString(ex);
                                 }
                             }
@@ -104,7 +107,7 @@ namespace Hamtec.Account
                     }
                     else
                     {
-                       
+                        
                     }
                 }
 
