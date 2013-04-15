@@ -7,6 +7,7 @@
     <asp:Label ID="Label2" runat="server" Text="Label" Visible="False"></asp:Label>
     <br /><br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
+    
         BackColor="#999999" Width="750px">
         <ItemTemplate>
         <div style="float: left; background-color: yellow; width: 16%; padding: 0px 0px 0px 5px;">
@@ -22,6 +23,7 @@
          <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
             <br />
         </div>
+
 <br />
         </ItemTemplate>
     </asp:DataList>
@@ -47,9 +49,12 @@
             <br />
             <asp:Label ID="ratingLabel1" runat="server" Text='<%# Eval("rating") + " points" %>' />
             <br />            
-            <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />
-
-
+            <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />                    
+            <form method="post" id="answer" name="answer">
+                <input type="hidden" name="userid" value="<%# Eval("userid") %>" />
+                <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
+                <input type="submit" name="giverating" id="giverating" value="mark as answer" style="display: <%# (Convert.ToInt16(Eval("Solved")) == 1) ? "none" : "inline" %>" />
+            </form>
         </div>    
          <div style="float: right; background-color: Green; width: 83%;">
             <asp:Label ID="timeLabel" runat="server" Text='<%# Eval("time") %>' />
@@ -63,7 +68,7 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time FROM posts CROSS JOIN users WHERE posts.userid = users.userid and (posts.topicid = @topicid) ">
+        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time, users.userid, posts.postid, topics.solved FROM posts CROSS JOIN users CROSS JOIN topics WHERE posts.userid = users.userid and (posts.topicid = @topicid) and topics.topicid = posts.topicid ">
         <SelectParameters>
             <asp:QueryStringParameter Name="topicid" QueryStringField="topicid" 
                 Type="Int64" />
