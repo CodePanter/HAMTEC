@@ -13,7 +13,7 @@
     <form runat="server">
    
 <div class="header">
-<div class="homelogo"> <a href="Default.aspx"><br /><img src="hamtec.png" alt="Hamtec." width="132" height="32" HSPACE="140" VSPACE="" ></a></div>
+<div class="homelogo"> <a href="/Default.aspx"><br /><img src="/hamtec.png" alt="Hamtec." width="132" height="32" HSPACE="140" VSPACE="" ></a></div>
 <asp:LoginView ID="HeadLoginView" EnableViewState="false">
 <% if (Session["username"] != null)
    { %>

@@ -50,13 +50,13 @@
             <asp:Label ID="ratingLabel1" runat="server" Text='<%# Eval("rating") + " points" %>' />
             <br />            
             <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />                    
-            <form method="post" id="answer" name="answer">
+            
                 <input type="hidden" name="userid" value="<%# Eval("userid") %>" />
                 <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
-                <input type="submit" name="giverating" id="giverating" value="mark as answer" style="display: <%# (Convert.ToInt16(Eval("Solved")) == 1) ? "none" : "inline" %>" />
-            </form>
+                <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" text="Rate" runat="server" style="display:<%# (Convert.ToInt16(Eval("Solved")) == 1) ? 'none' : 'inline' %>"   />
+             
         </div>    
-         <div style="float: right; background-color: Green; width: 83%;">
+         <div style="float: right; background-color: Green; width: 83%;"  >
             <asp:Label ID="timeLabel" runat="server" Text='<%# Eval("time") %>' />
             <br />
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
