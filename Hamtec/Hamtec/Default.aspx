@@ -2,7 +2,6 @@
     CodeBehind="Default.aspx.cs" Inherits="Hamtec._Default" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-   <div class="homelogo"> <br /><img src="hamtec.png" alt="Hamtec." width="320" height="240"></div>	
     <div class="recentanswered"> 
 		<p id="title">Recently solved</p>
         <% for (int i = 0; i < 5; i++)
