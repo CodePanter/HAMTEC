@@ -5,7 +5,9 @@
   <form method="POST" action="register.aspx" name="registerForm"><br />        
         <input id="subject" name="subject" type="Text" />Subject<br />
         <textarea id="question" name="question" /> </textarea>Question<br />
-        <input id="tag"   name="tag" type="Text" />Tag<br />
+        <input id="tag"   name="tag" type="Text" />Tag&nbsp;&nbsp;&nbsp;
+  <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
+  <br />
         <asp:DropDownList ID="DropDownList1" runat="server" name="categorie"
       DataSourceID="SqlDataSource1" DataTextField="categorie" 
       DataValueField="categorie">

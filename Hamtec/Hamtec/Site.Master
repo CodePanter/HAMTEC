@@ -30,6 +30,7 @@
  </AnonymousTemplate>
  <% } %>
  <a href="/about.aspx">           Users</a> 
+ <a href="/Tags.aspx">          Tags</a>
  <a href="/search.aspx">           Search</a> 
   <a href="/Default.aspx">          Home</a> 
 </asp:LoginView>
