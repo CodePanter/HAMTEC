@@ -85,7 +85,7 @@ namespace Hamtec.Account
 
 
                 }
-                //query voor moederator session
+                //query voor moderator session
                 string _query3 = "SELECT [moderator] FROM [users] WHERE [username] = '" + userName + "'";
                 byte _mod = 0;
 
