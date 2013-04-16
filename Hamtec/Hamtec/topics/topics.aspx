@@ -49,12 +49,13 @@
             <br />
             <asp:Label ID="ratingLabel1" runat="server" Text='<%# Eval("rating") + " points" %>' />
             <br />            
-            <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />                    
-            
+            <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />  
+                              
+            <div style="display:<%# ((Convert.ToInt16(Eval("userid")) == Convert.ToInt16(Session["userid"])) && (Convert.ToInt16(Eval("Solved")) != 1)) ? "inline" : "none" %>" >
                 <input type="hidden" name="userid" value="<%# Eval("userid") %>" />
                 <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
-                <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" text="Rate" runat="server" style="display:<%# (Convert.ToInt16(Eval("Solved")) == 1) ? 'none' : 'inline' %>"   />
-             
+                <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" text="Rate" runat="server"   />
+             </div>
         </div>    
          <div style="float: right; background-color: Green; width: 83%;"  >
             <asp:Label ID="timeLabel" runat="server" Text='<%# Eval("time") %>' />
@@ -68,7 +69,7 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time, users.userid, posts.postid, topics.solved FROM posts CROSS JOIN users CROSS JOIN topics WHERE posts.userid = users.userid and (posts.topicid = @topicid) and topics.topicid = posts.topicid ">
+        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time, users.userid, posts.postid, topics.solved, topics.userid FROM posts CROSS JOIN users CROSS JOIN topics WHERE posts.userid = users.userid and (posts.topicid = @topicid) and topics.topicid = posts.topicid ">
         <SelectParameters>
             <asp:QueryStringParameter Name="topicid" QueryStringField="topicid" 
                 Type="Int64" />
