@@ -57,7 +57,7 @@
             <br />            
             <img src='<%# "/profile/" + Eval("username") + ".png" %>' style="max-width: 100px; max-height:100px;"  />  
             <br />
-            <div style="display:<%# ((Convert.ToInt16(Eval("userid")) == Convert.ToInt16(Session["userid"])) && (Convert.ToInt16(Eval("Solved")) != 1)) ? "inline" : "none" %>" >
+            <div style="display:<%# ((Convert.ToInt16(Eval("tuser")) == Convert.ToInt16(Session["userid"])) && (Convert.ToInt16(Eval("Solved")) != 1)) ? "inline" : "none" %>" >
                 <input type="hidden" name="userid" value="<%# Eval("userid") %>" />
                 <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
                 <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" CommandArgument='<%# String.Format("{0}, {1}", Eval("userid"), Eval("postid")) %>' text="Set as answer" runat="server"   />
@@ -75,7 +75,7 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time, users.userid, posts.postid, topics.solved, topics.userid FROM posts CROSS JOIN users CROSS JOIN topics WHERE posts.userid = users.userid and (posts.topicid = @topicid) and topics.topicid = posts.topicid ORDER BY posts.answer desc ">
+        SelectCommand="SELECT posts.message, users.username, users.rating, posts.time, users.userid, posts.postid, topics.solved, topics.userid AS tuser FROM posts CROSS JOIN users CROSS JOIN topics WHERE posts.userid = users.userid and (posts.topicid = @topicid) and topics.topicid = posts.topicid ORDER BY posts.answer desc ">
         <SelectParameters>
             <asp:QueryStringParameter Name="topicid" QueryStringField="topicid" 
                 Type="Int64" />

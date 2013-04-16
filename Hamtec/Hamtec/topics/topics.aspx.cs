@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 namespace Hamtec.topics
 {
     public partial class topics : System.Web.UI.Page
-    {         
+    {
         public bool EnableButton(int solved)
         {
             if (solved == 0)
@@ -23,7 +23,7 @@ namespace Hamtec.topics
         string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             userID = Convert.ToInt64(Session["userid"]);
             //if (IsPostBack)
             //{
@@ -62,8 +62,8 @@ namespace Hamtec.topics
             //    }
 
             //}
-            
-            
+
+
         }
         protected void closeTopic(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace Hamtec.topics
         protected void GiveRating(object sender, EventArgs e)
         {
             string argument = ((Button)sender).CommandArgument;
-            string[] strSplitArr = argument.Split(',');  
+            string[] strSplitArr = argument.Split(',');
             Label2.Visible = true;
             string _query = "UPDATE [users] SET rating = (rating +10) where userid = '" + strSplitArr[0] + "'";
             string _query2 = "UPDATE [posts] SET answer = 1 where postid = '" + strSplitArr[1] + "'";
