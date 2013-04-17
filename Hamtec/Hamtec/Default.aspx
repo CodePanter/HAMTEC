@@ -40,7 +40,7 @@
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
             
             
-            SelectCommand="SELECT [topicid], [message], [subject], [solved], [time], [tags], [categorie] FROM [topics] where closed = 1 ORDER BY [time] DESC ">
+            SelectCommand="SELECT TOP 50 [topicid], [message], [subject], [solved], [time], [tags], [categorie] FROM [topics] where closed = 1 ORDER BY [time] DESC ">
         </asp:SqlDataSource>
 	</div>
 </asp:Content>

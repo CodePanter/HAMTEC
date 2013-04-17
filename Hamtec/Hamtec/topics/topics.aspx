@@ -9,6 +9,7 @@
    { %> 
    <asp:Button  onclick="closeTopic" CommandArgument='<%=Request.QueryString["topicid"] %>' id="closebutton" text="Close topic" runat="server"/>
    <asp:Button  onclick="openTopic" CommandArgument='<%=Request.QueryString["topicid"] %>' id="openbutton" text="Open topic" runat="server"/>
+   <asp:Button  onclick="deleteTopic" CommandArgument='<%=Request.QueryString["topicid"] %>' id="deletebutton" text="Delete topic" runat="server"/>
    <% } %>
     
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
@@ -62,6 +63,12 @@
                 <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
                 <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" CommandArgument='<%# String.Format("{0}, {1}", Eval("userid"), Eval("postid")) %>' text="Set as answer" runat="server"   />
             </div>
+             <% if (Convert.ToInt16(Session["moderator"]) > 0)
+                { %> 
+                <br />
+                 <asp:Button  onclick="delComment" CommandArgument='<%# Eval("postid") %>' id="delbutton" text="Del Comment" runat="server"/>
+
+             <% } %>
         </div>    
          <div style="float: right; width: 87%; padding: 0px 0px 0px 5px;"  >
             <asp:Label ID="timeLabel" runat="server" Text='<%# Eval("time") %>' />
@@ -103,7 +110,19 @@
 
     
         
-    <br /><br />
+    <br />
+    <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3" 
+        Width="150px" style="background-color: Purple; position:absolute; top: 40px; right: 5px;">
+        <ItemTemplate>
+        <a href="Tagstopics.aspx?Tags=<%# Server.UrlEncode(Convert.ToString(Eval("Tags"))) %>"><%# Eval("Tags") %></a>
+<br />
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
+        SelectCommand="SELECT TOP 10 [Tags] FROM [tags] ORDER BY [Count] DESC">
+    </asp:SqlDataSource>
+    <br />
     <p>
     </p>
 </asp:Content>

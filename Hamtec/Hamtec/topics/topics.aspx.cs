@@ -121,6 +121,67 @@ namespace Hamtec.topics
             }
         }
 
+        protected void deleteTopic(object sender, EventArgs e)
+        {
+            string argument = Request.QueryString["topicid"];
+            string _query = "DELETE FROM [topics] where topicid = '" + argument + "'";
+            string _query2 = "DELETE FROM [posts] where topicid = '" + argument + "'";
+
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            {
+                using (SqlCommand comm = new SqlCommand())
+                {
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = _query;
+
+                    try
+                    {
+                        conn.Open();
+                        comm.ExecuteNonQuery();
+                        comm.CommandText = _query2;
+                        comm.ExecuteNonQuery();
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    catch (SqlException ex)
+                    {
+                        Label2.Visible = true;
+                        Label2.Text += Convert.ToString(ex);
+                    }
+                }
+            }
+        }
+
+        protected void delComment(object sender, EventArgs e)
+        {
+            string argument = ((Button)sender).CommandArgument;
+            string _query = "DELETE FROM [posts] where postid = '" + argument + "'";
+
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            {
+                using (SqlCommand comm = new SqlCommand())
+                {
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = _query;
+
+                    try
+                    {
+                        conn.Open();
+                        comm.ExecuteNonQuery();
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    catch (SqlException ex)
+                    {
+                        Label2.Visible = true;
+                        Label2.Text += Convert.ToString(ex);
+                    }
+                }
+            }
+        }
+
+
+
 
         protected void GiveRating(object sender, EventArgs e)
         {

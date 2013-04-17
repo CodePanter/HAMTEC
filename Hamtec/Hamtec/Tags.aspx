@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
             <br />
             <B>Most searched Tags.</B>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
         <ItemTemplate>
