@@ -50,7 +50,7 @@
                 <th colspan="2"><h2>Statistics</h2></th>
                 <tr>
                     <td>Rating:</td>
-                    <td><asp:Label ID="ratingLabel" runat="server" Text='<%# Eval("rating") + "0" %>' /></td>
+                    <td><asp:Label ID="ratingLabel" runat="server" Text='<%# Eval("rating") %>' /></td>
                 </tr>
                 <tr>
                     <td>Badges:</td>

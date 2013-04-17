@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="Hamtec.Search" %>
+﻿<%@ Page Title="Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="Hamtec.Search" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
@@ -8,33 +8,41 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<br class="style1" /><span class="style1">Search. </span>
-    <br />
-    Topic name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <br />
-    Part of question:&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-    <br />
-    Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-    <asp:DropDownList ID="DropDownList1" runat="server" 
-        DataSourceID="SqlDataSource1" DataTextField="categorie" 
-        DataValueField="categorie">
-    </asp:DropDownList>
-    <br />
-    One tag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-    <br />
-    <br />
+<table id="centertable">
+    <tr>
+        <th colspan=2><h1>Search</h1></th>
+    </tr>
+    <tr>
+        <td>Topic name</td>
+        <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+    </tr>
+    <tr>
+        <td>Part of question</td>
+        <td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td><asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="categorie" DataValueField="categorie"></asp:DropDownList></td>
+    </tr>
+    <tr>
+        <td>One tag</td>
+        <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+    </tr>    
+    <tr>
+        <td></td>
+        <td><asp:Button ID="Button1" runat="server" Text="Search" /></td>
+    </tr>
+  </table>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
         SelectCommand="SELECT DISTINCT [categorie] FROM [categorieen]">
     </asp:SqlDataSource>
-    <asp:Button ID="Button1" runat="server" Text="Search" />
+    
     <br />
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource2">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource2" style="margin: auto;">
         <ItemTemplate>
             subject:
-            <asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' />
+            <b><a href='/../topics/topics.aspx?topicid=<%# Eval("topicid") %>'><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject")%>' /></a></b>
             <br />
             message:
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
@@ -49,9 +57,9 @@
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
         
         
-        SelectCommand="SELECT [subject], [message], [categorie]
+        SelectCommand="SELECT [subject], [message], [categorie], [topicid]
 FROM [topics] 
-WHERE (([categorie] = @categorie) OR([subject] LIKE '%' + @subject + '%') OR([message] LIKE '%' + @message + '%') OR ([tags] LIKE '%' + @tags + '%'))">
+WHERE (([categorie] = @categorie) OR([subject] LIKE '%' + @subject + '%') OR([message] LIKE '%' + @message + '%') OR ([tags] LIKE '%' + @tags + '%')) AND subject != 'vvvv' ">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="categorie" 
                 PropertyName="SelectedValue" Type="String" DefaultValue="None" />

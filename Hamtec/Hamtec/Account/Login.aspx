@@ -19,7 +19,8 @@
         </tr>
         <tr>           
             <td></td> 
-            <td><input value="Login" type="Submit" /></td>
+            <td><input value="Login" type="Submit" /><asp:Label ID="Label1" runat="server"></asp:Label>
+            </td>
         </tr>         
         <tr>
             <td colspan="2">No account? <a href="register.aspx">Register</a></td>

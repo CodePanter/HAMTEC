@@ -40,12 +40,13 @@ namespace Hamtec.Account
                             if (count == 0)
                             {
                                 //Text weergeven als het wachtwoord of gebruikersnaam niet juist is
-                                TextInput.Text = "Wrong username or password";
+                                Label1.Text = "Wrong username or password";
                             }
                             else
                             {
                                 //Sessie aanmaken waarin de gebruikersnaam komt
                                 Session["username"] = userName;
+                                additionalSessions(userName);
                                 //Website doorsturen naar de homepage
                             }
                         }
@@ -56,63 +57,69 @@ namespace Hamtec.Account
                         }
                     }
                 }
-                //Query om userid op te halen 
-                string _query2 = "SELECT [userid] FROM [users] WHERE [username] = '" + userName + "'";
-                Int64 _res = 0;
+               
 
-                using (SqlConnection conn = new SqlConnection(_connStr))
-                {
-                    using (SqlCommand comm = new SqlCommand())
-                    {
-                        comm.Connection = conn;
-                        comm.CommandType = CommandType.Text;
-                        comm.CommandText = _query2;
-                        try
-                        {
-                            conn.Open();
-                            //userid opslaan in een session
-                            _res = (Int64)comm.ExecuteScalar(); //resultaat van de query komt in deze string
-                            Session["userid"] = _res;
-
-                        }
-                        catch (SqlException ex)
-                        {
-                            TextInput.Text = Convert.ToString(ex);
-                        }
-                    }
-
-
-
-
-                }
-                //query voor moderator session
-                string _query3 = "SELECT [moderator] FROM [users] WHERE [username] = '" + userName + "'";
-                byte _mod = 0;
-
-                using (SqlConnection conn = new SqlConnection(_connStr))
-                {
-                    using (SqlCommand comm = new SqlCommand())
-                    {
-                        comm.Connection = conn;
-                        comm.CommandType = CommandType.Text;
-                        comm.CommandText = _query3;
-                        try
-                        {
-                            conn.Open();
-                            //userid opslaan in een session
-                            _mod = (byte)comm.ExecuteScalar(); //resultaat van de query komt in deze string
-                            Session["moderator"] = _mod;
-
-                        }
-                        catch (SqlException ex)
-                        {
-                            TextInput.Text = Convert.ToString(ex);
-                        }
-                    }
-                }
-
-                Response.Redirect("/Default.aspx");
+               
             }
+        }
+        private void additionalSessions(string userName)
+        {
+            string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+            //Query om userid op te halen 
+            string _query2 = "SELECT [userid] FROM [users] WHERE [username] = '" + userName + "'";
+            Int64 _res = 0;
+
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            {
+                using (SqlCommand comm = new SqlCommand())
+                {
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = _query2;
+                    try
+                    {
+                        conn.Open();
+                        //userid opslaan in een session
+                        _res = (Int64)comm.ExecuteScalar(); //resultaat van de query komt in deze string
+                        Session["userid"] = _res;
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        TextInput.Text = Convert.ToString(ex);
+                    }
+                }
+
+
+
+
+            }
+            //query voor moderator session
+            string _query3 = "SELECT [moderator] FROM [users] WHERE [username] = '" + userName + "'";
+            byte _mod = 0;
+
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            {
+                using (SqlCommand comm = new SqlCommand())
+                {
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = _query3;
+                    try
+                    {
+                        conn.Open();
+                        //userid opslaan in een session
+                        _mod = (byte)comm.ExecuteScalar(); //resultaat van de query komt in deze string
+                        Session["moderator"] = _mod;
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        TextInput.Text = Convert.ToString(ex);
+                    }
+                }
+            }
+            Response.Redirect("/Default.aspx");
         }
     }
 }

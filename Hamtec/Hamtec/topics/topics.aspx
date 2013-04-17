@@ -11,7 +11,7 @@
    <asp:Button  onclick="openTopic" CommandArgument='<%=Request.QueryString["topicid"] %>' id="openbutton" text="Open topic" runat="server"/>
    <asp:Button  onclick="deleteTopic" CommandArgument='<%=Request.QueryString["topicid"] %>' id="deletebutton" text="Delete topic" runat="server"/>
    <% } %>
-    
+    <h1>Question</h1>
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
     
         BackColor="#CCCCCC" Width="750px" style="margin: 0 0 0 10px;">
@@ -24,7 +24,7 @@
            <img src='<%# "/profile/" + Eval("username") + ".png" %>'  style="max-width: 100px; max-height:100px;" />
         </div>
         <div style="float: right; width: 87%; padding: 0px 0px 0px 5px;" >
-         <b><asp:Label ID="subjectLabel1" runat="server" Text='<%# Eval("subject") %>' /> - <asp:Label ID="timeLabel1" runat="server" Text='<%# Eval("time") %>' /></b>
+         <b><asp:Label ID="subjectLabel1" runat="server" Text='<%# Eval("subject") %>' /> - <asp:Label ID="timeLabel1" runat="server" Text='<%# Eval("time") %>' />  &nbsp;&nbsp;&nbsp; Tags: <a href="/Tagstopics.aspx?Tags=<%# Server.UrlEncode(Eval("tags").ToString()) %>"/><%# Eval("tags") %></a></b>
          <br />
          <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
             <br />
@@ -36,7 +36,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
         
-        SelectCommand="SELECT topics.message, users.username, users.rating, topics.time, topics.subject FROM topics CROSS JOIN users WHERE (topics.topicid = @topicid) AND users.userid = topics.userid">
+        SelectCommand="SELECT topics.message, users.username, users.rating, topics.time, topics.subject,topics.tags FROM topics CROSS JOIN users WHERE (topics.topicid = @topicid) AND users.userid = topics.userid">
         <SelectParameters>
             <asp:QueryStringParameter Name="topicid" QueryStringField="topicid" 
                 Type="Int64" />
@@ -44,9 +44,8 @@
     </asp:SqlDataSource>
     <br />   
     
-    <br /><br />
-    <br />        
     <br />
+    <h1>Answers</h1>
     <asp:DataList ID="DataList2" runat="server" 
         DataSourceID="SqlDataSource2" BackColor="#999999" Width="750px" style="margin: 0 0 0 10px;">
         <AlternatingItemStyle BackColor="#CCCCCC" />
@@ -61,12 +60,12 @@
             <div style="display:<%# ((Convert.ToInt16(Eval("tuser")) == Convert.ToInt16(Session["userid"])) && (Convert.ToInt16(Eval("Solved")) != 1)) ? "inline" : "none" %>" >
                 <input type="hidden" name="userid" value="<%# Eval("userid") %>" />
                 <input type="hidden" name="postid" value="<%# Eval("postid") %>" />
-                <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" CommandArgument='<%# String.Format("{0}, {1}", Eval("userid"), Eval("postid")) %>' text="Set as answer" runat="server"   />
+                <asp:Button type="submit" name="giverating" id="giverating"  onclick="GiveRating" CommandArgument='<%# String.Format("{0}, {1}", Eval("userid"), Eval("postid")) %>' text="Answer" runat="server"   />
             </div>
              <% if (Convert.ToInt16(Session["moderator"]) > 0)
                 { %> 
                 <br />
-                 <asp:Button  onclick="delComment" CommandArgument='<%# Eval("postid") %>' id="delbutton" text="Del Comment" runat="server"/>
+                 <asp:Button  onclick="delComment" CommandArgument='<%# Eval("postid") %>' id="delbutton" text="Delete" runat="server"/>
 
              <% } %>
         </div>    
@@ -112,9 +111,12 @@
         
     <br />
     <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3" 
-        Width="150px" style="background-color: Purple; position:absolute; top: 40px; right: 5px;">
+        Width="150px" 
+        style=" position:absolute; top: 39px; right: 5px;" BackColor="#CCCCCC">
+        <HeaderTemplate>  Most used tags</HeaderTemplate>
         <ItemTemplate>
-        <a href="Tagstopics.aspx?Tags=<%# Server.UrlEncode(Convert.ToString(Eval("Tags"))) %>"><%# Eval("Tags") %></a>
+        
+        <a href="/Tagstopics.aspx?Tags=<%# Server.UrlEncode(Convert.ToString(Eval("Tags"))) %>"><%# Eval("Tags") %></a>
 <br />
         </ItemTemplate>
     </asp:DataList>

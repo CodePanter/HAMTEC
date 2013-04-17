@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About Us" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Users" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="About.aspx.cs" Inherits="Hamtec.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -17,14 +17,13 @@
                     SortExpression="username" />
                 <asp:BoundField DataField="name" HeaderText="name" 
                     SortExpression="name" />
-                <asp:BoundField DataField="email" HeaderText="email" 
-                    SortExpression="email" />
+                
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
             
-            SelectCommand="SELECT [userid], [username], [name], [email] FROM [users]"></asp:SqlDataSource>
+            SelectCommand="SELECT [userid], [username], [name] FROM [users]"></asp:SqlDataSource>
     </h2>
     <p>
          <br /><br /><br /><br />	
