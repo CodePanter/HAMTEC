@@ -7,7 +7,7 @@
         BackColor="#999999" Width="750px">
         <ItemTemplate>
             subject:
-            <asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' />
+            <b><a href='/../topics/topics.aspx?topicid=<%# Eval("topicid") %>'><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject")%>' /></a></b>            
             <br />
             message:
             <asp:Label ID="messageLabel" runat="server" Text='<%# Eval("message") %>' />
@@ -21,7 +21,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
         
-        SelectCommand="SELECT [subject], [message], [tags] FROM [topics] WHERE ([tags] like @Tags)">
+SelectCommand="SELECT [topicid], [subject], [message], [tags] FROM [topics] WHERE ([tags] like '%' + @Tags + '%')">
         <SelectParameters>
             <asp:QueryStringParameter Name="Tags" QueryStringField="Tags" DefaultValue="" />
         </SelectParameters>
