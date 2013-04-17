@@ -29,11 +29,11 @@ namespace Hamtec
                 bool twotags = false;
 
                 string _connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-                string _query = "INSERT INTO [topics] (subject, userid, message, tags, categorie) VALUES ('" + subject + "', 2, '" + question + "', '" + tag + "', '" + categorie +"')";
+                string _query = "INSERT INTO [topics] (subject, userid, message, tags, categorie) VALUES ('" + subject + "','" + Session["userid"] + "', '" + question + "', '" + tag + "', '" + categorie +"')";
                 string _query2 = "";
                 string _query3 = "";
 
-                if (Regex.IsMatch(tag, "[\\w\\s,]+") == true)  //////////////////////////////dit moet anders
+                if (Regex.IsMatch(tag, "^[a-zA-Z0-9, ]+$") == true)  //////////////////////////////dit moet anders
                 {
                     if (tag.Contains(","))
                     {
