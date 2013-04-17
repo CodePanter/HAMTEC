@@ -10,13 +10,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <br class="style1" /><span class="style1">Search. </span>
     <br />
-    Topic name:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    Topic name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     <br />
-    Category:&nbsp;&nbsp;&nbsp;
+    Part of question:&nbsp;
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <br />
+    Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
     <asp:DropDownList ID="DropDownList1" runat="server" 
         DataSourceID="SqlDataSource1" DataTextField="categorie" 
         DataValueField="categorie">
     </asp:DropDownList>
+    <br />
+    One tag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <br />
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
@@ -40,12 +47,20 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionStringDB %>" 
-        SelectCommand="SELECT [subject], [message], [categorie] FROM [topics] WHERE (([categorie] = @categorie) AND ([subject] LIKE '%' + @subject + '%'))">
+        
+        
+        SelectCommand="SELECT [subject], [message], [categorie]
+FROM [topics] 
+WHERE (([categorie] = @categorie) OR([subject] LIKE '%' + @subject + '%') OR([message] LIKE '%' + @message + '%') OR ([tags] LIKE '%' + @tags + '%'))">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="categorie" 
-                PropertyName="SelectedValue" Type="String" />
+                PropertyName="SelectedValue" Type="String" DefaultValue="None" />
             <asp:ControlParameter ControlID="TextBox1" Name="subject" PropertyName="Text" 
-                Type="String" />
+                Type="String" DefaultValue="Optional subject." />
+            <asp:ControlParameter ControlID="TextBox2" DefaultValue="Optional question." 
+                Name="message" PropertyName="Text" />
+            <asp:ControlParameter ControlID="TextBox3" DefaultValue="Optional tag." 
+                Name="tags" PropertyName="Text" />
         </SelectParameters>
     </asp:SqlDataSource>
     <br />

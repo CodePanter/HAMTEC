@@ -8,7 +8,7 @@
             <br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
         <ItemTemplate>
-        <b><a href='/Tagstopics.aspx?Tags=<%# Eval("Tags") %>'><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("Tags") %>' /></a></b>
+        <b><a href='/Tagstopics.aspx?Tags=<%# Server.UrlEncode(Eval("Tags").ToString()) %>'><asp:Label ID="Label1" runat="server" Text='<%# Eval("Tags")%>' /></a></b>
         </ItemTemplate>
     </asp:DataList>
     <br />
